@@ -50,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomPadding(8.0),
                     CustomInputfield(),
                     CustomButton('Register', 25.0, 'RockSalt',
-                        Alignment.centerRight, '/'),
+                        Alignment.centerRight, '/registered'),
                   ],
                 ),
               ),
