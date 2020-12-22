@@ -45,10 +45,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: <Widget>[
                         Padding(padding: EdgeInsets.only(left: 10.0)),
                         CustomButton('Not yet a member?', 15.0, '',
-                            Alignment.centerLeft, '/register'),
+                            Alignment.centerLeft, '/register', Colors.white),
                         Padding(padding: EdgeInsets.only(left: 100.0)),
                         CustomButton('Login', 25.0, 'RockSalt',
-                            Alignment.centerRight, '/dashboard'),
+                            Alignment.centerRight, '/dashboard', Colors.white),
                       ],
                     ),
                   ],
