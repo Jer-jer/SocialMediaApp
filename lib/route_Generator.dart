@@ -1,3 +1,4 @@
+import 'package:FinalsProject/Screens/wrapper.dart';
 import 'package:FinalsProject/Screens/LoginScreen.dart';
 import 'package:FinalsProject/Screens/RegisterScreen.dart';
 import 'package:FinalsProject/Screens/RegisteredScreen.dart';
@@ -8,7 +9,7 @@ class RouteGenarator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(builder: (_) => Wrapper());
       case '/register':
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case '/registered':

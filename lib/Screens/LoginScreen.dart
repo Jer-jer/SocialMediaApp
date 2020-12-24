@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Colors.lightBlue[300],
+            color: Color(4283411658),
             child: Center(
               child: Container(
                 width: 400,
