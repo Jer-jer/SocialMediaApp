@@ -24,7 +24,7 @@ class _RegisteredScreenState extends State<RegisteredScreen> {
                   Alignment.center),
               CustomPadding(5.0),
               CustomButton('Click Here to Continue', 15.0, '',
-                  Alignment.bottomRight, '/'),
+                  Alignment.bottomRight, '/', Colors.white),
             ],
           ),
         ),

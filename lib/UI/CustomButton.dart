@@ -5,8 +5,10 @@ class CustomButton extends StatelessWidget {
   num size;
   String family;
   Alignment align;
+  Color color;
   String route;
-  CustomButton(this.hintText2, this.size, this.family, this.align, this.route);
+  CustomButton(this.hintText2, this.size, this.family, this.align, this.route,
+      this.color);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +22,7 @@ class CustomButton extends StatelessWidget {
           hintText2,
           style: TextStyle(
             fontSize: size,
-            color: Colors.white,
+            color: color,
             fontFamily: family,
           ),
         ),
