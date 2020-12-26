@@ -1,6 +1,9 @@
+import 'package:FinalsProject/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class DrawerScreen extends StatelessWidget {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -70,6 +73,19 @@ class DrawerScreen extends StatelessWidget {
               Navigator.of(context).pushNamed('/aboutus');
             },
           ),
+          // TextButton.icon(
+          //   icon: Icon(Icons.logout),
+          //   label: Text("Log Out"),
+          //   style: TextButton.styleFrom(
+          //     primary: Colors.grey,
+          //     textStyle: TextStyle(
+          //       color: Colors.grey,
+          //       fontFamily: 'Thasadith',
+          //       fontSize: 18.0,
+          //     ),
+          //   ),
+          //   onPressed: () async {},
+          // ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text(
@@ -79,8 +95,9 @@ class DrawerScreen extends StatelessWidget {
                 fontSize: 18.0,
               ),
             ),
-            onTap: () {
-              Navigator.of(context).pushNamed('/');
+            onTap: () async {
+              await _auth.signOut();
+              // Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
             },
           ),
         ],
