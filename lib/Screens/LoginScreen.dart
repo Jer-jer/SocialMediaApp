@@ -45,46 +45,50 @@ class _LoginScreenState extends State<LoginScreen> {
                     Form(
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 20.0),
+                          LabelText('UserName/Email/Phone', 17.0, '',
+                              Alignment.centerLeft),
+                          CustomPadding(5.0),
                           Container(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                labelText: "Email",
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                              onChanged: (val) {
-                                setState(() => email = val);
-                              },
-                            ),
-                            width: 250,
+                            width: 350,
                             height: 40,
+                            child: Material(
+                              elevation: 5.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15.0)),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  labelText: "username/email/phone",
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                ),
+                                onChanged: (val) {
+                                  setState(() => email = val);
+                                },
+                              ),
+                            ),
                           ),
-                          SizedBox(height: 20.0),
+                          CustomPadding(10.0),
+                          LabelText('Password', 17.0, '', Alignment.centerLeft),
+                          CustomPadding(5.0),
                           Container(
-                            child: TextFormField(
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                labelText: "Password",
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(5.0),
-                                  ),
-                                ),
-                              ),
-                              onChanged: (val) {
-                                setState(() => password = val);
-                              },
-                            ),
-                            width: 250,
+                            width: 350,
                             height: 40,
+                            child: Material(
+                              elevation: 5.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15.0)),
+                              child: TextFormField(
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                  labelText: "Password",
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                ),
+                                onChanged: (val) {
+                                  setState(() => password = val);
+                                },
+                              ),
+                            ),
                           ),
                         ],
                       ),
