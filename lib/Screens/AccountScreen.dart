@@ -59,83 +59,146 @@ class _AccountScreenState extends State<AccountScreen> {
           backgroundColor: Color(4283411658),
           elevation: 0.0,
         ),
-        body: Builder(
-          builder: (context) => Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(left: 50.0),
-                    ),
-                    CircleAvatar(
-                      radius: 100,
-                      backgroundColor: Color(4283411658),
-                      child: ClipOval(
-                        child: SizedBox(
-                          width: 180.0,
-                          height: 180.0,
-                          child: (_image != null)
-                              ? Image.file(_image, fit: BoxFit.fill)
-                              : Image.network(
-                                  'https://manila-wine.com/media/catalog/product/r/e/red-label-700ml.jpg',
-                                  fit: BoxFit.fill,
-                                ),
+        body: SingleChildScrollView(
+          child: Builder(
+            builder: (context) => Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(height: 100.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(left: 50.0),
+                      ),
+                      CircleAvatar(
+                        radius: 100,
+                        backgroundColor: Color(4283411658),
+                        child: ClipOval(
+                          child: SizedBox(
+                            width: 180.0,
+                            height: 180.0,
+                            child: (_image != null)
+                                ? Image.file(_image, fit: BoxFit.fill)
+                                : Image.network(
+                                    'https://manila-wine.com/media/catalog/product/r/e/red-label-700ml.jpg',
+                                    fit: BoxFit.fill,
+                                  ),
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 60.0),
-                      child: IconButton(
-                        icon: Icon(Icons.camera),
-                        iconSize: 30.0,
-                        color: Color(4283411658),
-                        onPressed: () {
-                          getImage();
-                        },
+                      Padding(
+                        padding: EdgeInsets.only(top: 60.0),
+                        child: IconButton(
+                          icon: Icon(Icons.camera),
+                          iconSize: 30.0,
+                          color: Color(4283411658),
+                          onPressed: () {
+                            getImage();
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Text2('Full Name', 25.0),
-                CustomPadding(5.0),
-                Text2('Get Data From Database', 13.0),
-                CustomPadding(10.0),
-                Text2('Password', 25.0),
-                CustomPadding(5.0),
-                Text2('Get Data From Database', 13.0),
-                CustomPadding(10.0),
-                Text2('Email Address', 25.0),
-                CustomPadding(5.0),
-                Text2('Get Data From Database', 13.0),
-                CustomPadding(20.0),
-                // CustomButton('Edit', 25.0, 'Thasadith', Alignment.bottomCenter,
-                //     '', Colors.blue),
-                Container(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Edit',
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          color: Colors.blue,
-                          fontFamily: 'Thasadith',
+                    ],
+                  ),
+                  SizedBox(height: 10.0),
+                  Text2('Full Name', 25.0),
+                  CustomPadding(5.0),
+                  Text2('Get Data From Database', 13.0),
+                  CustomPadding(10.0),
+                  Text2('Password', 25.0),
+                  CustomPadding(5.0),
+                  Text2('Get Data From Database', 13.0),
+                  CustomPadding(10.0),
+                  Text2('Email Address', 25.0),
+                  CustomPadding(5.0),
+                  Text2('Get Data From Database', 13.0),
+                  CustomPadding(20.0),
+                  // CustomButton('Edit', 25.0, 'Thasadith', Alignment.bottomCenter,
+                  //     '', Colors.blue),
+                  Container(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: TextButton(
+                        onPressed: () {
+                          createAlertDialog(context);
+                        },
+                        child: Text(
+                          'Edit',
+                          style: TextStyle(
+                            fontSize: 25.0,
+                            color: Colors.blue,
+                            fontFamily: 'Thasadith',
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  Future<String> createAlertDialog(BuildContext context) {
+    TextEditingController customController = TextEditingController();
+
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            titlePadding: EdgeInsets.all(10.0),
+            title: Text('Edit Details'),
+            content: SizedBox(
+              height: 190,
+              child: Form(
+                  child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    controller: customController,
+                    decoration: InputDecoration(
+                      labelText: 'Name',
+                    ),
+                  ),
+                  TextFormField(
+                    controller: customController,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                    ),
+                  ),
+                  TextFormField(
+                    controller: customController,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                    ),
+                  ),
+                ],
+              )),
+            ),
+            actions: <Widget>[
+              MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pop(customController.text.toString());
+                },
+                elevation: 5.0,
+                child: Text('Cancel'),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pop(customController.text.toString());
+                },
+                elevation: 5.0,
+                child: Image.asset(
+                  'images/enter(4FACCA).png',
+                  width: 30.0,
+                  height: 30.0,
+                ),
+              ),
+            ],
+          );
+        });
   }
 }

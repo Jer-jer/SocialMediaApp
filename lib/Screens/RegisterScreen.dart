@@ -48,77 +48,104 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomPadding(3.0),
                       Container(
                         width: 350,
-                        height: 40,
-                        child: Material(
-                          elevation: 5.0,
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
+                        height: 60,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            helperText: '',
+                            filled: true,
+                            fillColor: Colors.white,
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 2.0),
                             ),
-                            validator: (val) => val.isEmpty
-                                ? 'Enter name btch dont be secretive'
-                                : null,
-                            onChanged: (val) {
-                              setState(() => fullname = val);
-                            },
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.blue, width: 2.0),
+                            ),
                           ),
+                          validator: (val) => val.isEmpty
+                              ? 'Enter name btch dont be secretive'
+                              : null,
+                          onChanged: (val) {
+                            setState(() => fullname = val);
+                          },
                         ),
                       ),
-                      CustomPadding(5.0),
+                      CustomPadding(4.0),
                       LabelText(
                           'Email Address', 17.0, '', Alignment.centerLeft),
                       CustomPadding(3.0),
                       Container(
                         width: 350,
-                        height: 40,
-                        child: Material(
-                          elevation: 5.0,
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
+                        height: 60,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            helperText: '',
+                            filled: true,
+                            fillColor: Colors.white,
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 2.0),
                             ),
-                            validator: (val) =>
-                                val.isEmpty ? 'Enter Email btch' : null,
-                            onChanged: (val) {
-                              setState(() => email = val);
-                            },
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.blue, width: 2.0),
+                            ),
                           ),
+                          validator: (val) =>
+                              val.isEmpty ? 'Enter Email btch' : null,
+                          onChanged: (val) {
+                            setState(() => email = val);
+                          },
                         ),
                       ),
-                      CustomPadding(5.0),
+                      CustomPadding(4.0),
                       LabelText('Password', 17.0, '', Alignment.centerLeft),
                       CustomPadding(3.0),
                       Container(
                         width: 350,
-                        height: 40,
-                        child: Material(
-                          elevation: 5.0,
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          child: TextFormField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
+                        height: 60,
+                        child: TextFormField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            helperText: '',
+                            filled: true,
+                            fillColor: Colors.white,
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 2.0),
                             ),
-                            validator: (val) => val.length <= 8
-                                ? 'put 8 or more chars btch'
-                                : null,
-                            onChanged: (val) {
-                              setState(() => password = val);
-                            },
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.blue, width: 2.0),
+                            ),
                           ),
+                          validator: (val) => val.length <= 8
+                              ? 'put 8 or more chars btch'
+                              : null,
+                          onChanged: (val) {
+                            setState(() => password = val);
+                          },
                         ),
                       ),
                       Row(
                         children: <Widget>[
-                          Padding(padding: EdgeInsets.only(left: 10.0)),
-                          CustomButton('Already a member?', 10.0, '',
+                          Padding(padding: EdgeInsets.only(left: 20.0)),
+                          CustomButton('Already a member?', 15.0, '',
                               Alignment.centerLeft, '/', Colors.white),
-                          Padding(padding: EdgeInsets.only(left: 90.0)),
+                          Padding(padding: EdgeInsets.only(left: 40.0)),
                           Container(
                             alignment: Alignment.bottomRight,
                             child: TextButton(
@@ -127,7 +154,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 primary: Colors.white,
                                 textStyle: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 15,
+                                  fontSize: 25,
                                   fontFamily: 'RockSalt',
                                 ),
                               ),

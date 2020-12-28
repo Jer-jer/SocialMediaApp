@@ -88,6 +88,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             onChanged: (val) {
               setState(() => content = val);
             },
+            decoration: InputDecoration(
+              fillColor: Colors.lightBlue[300],
+              filled: true,
+            ),
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
           actions: <Widget>[
             MaterialButton(
