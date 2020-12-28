@@ -13,12 +13,8 @@ class CustomImages extends StatelessWidget {
         Container(
           width: 75,
           height: 75,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: ExactAssetImage(hintText3),
-              fit: BoxFit.fill,
-            ),
+          child: CircleAvatar(
+            backgroundImage: AssetImage(hintText3),
           ),
         ),
         Padding(

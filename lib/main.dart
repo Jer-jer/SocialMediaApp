@@ -1,3 +1,10 @@
+import 'package:FinalsProject/Screens/wrapper.dart';
+import 'package:FinalsProject/Screens/LoginScreen.dart';
+import 'package:FinalsProject/Screens/RegisterScreen.dart';
+import 'package:FinalsProject/Screens/RegisteredScreen.dart';
+import 'package:FinalsProject/Screens/DashboardScreen.dart';
+import 'package:FinalsProject/Screens/AboutScreen.dart';
+import 'package:FinalsProject/Screens/AccountScreen.dart';
 import 'package:FinalsProject/route_Generator.dart';
 import 'package:FinalsProject/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +25,14 @@ class MyApp extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
         initialRoute: '/',
-        onGenerateRoute: RouteGenarator.generateRoute,
+        routes: {
+          '/': (context) => Wrapper(),
+          '/registered': (context) => RegisteredScreen(),
+          '/dashboard': (context) => DashboardScreen(),
+          '/account': (context) => AccountScreen(),
+          '/aboutus': (context) => AboutScreen(),
+          '/register': (context) => RegisterScreen(),
+        },
       ),
     );
   }

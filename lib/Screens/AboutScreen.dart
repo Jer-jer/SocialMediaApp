@@ -24,7 +24,7 @@ class _AboutScreenState extends State<AboutScreen> {
               fontFamily: 'RockSalt',
             ),
           ),
-          backgroundColor: Colors.lightBlue[300],
+          backgroundColor: Color(4283411658),
           elevation: 0.0,
         ),
         body: Container(

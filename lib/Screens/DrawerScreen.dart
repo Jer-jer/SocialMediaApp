@@ -1,4 +1,7 @@
 import 'package:FinalsProject/services/auth.dart';
+import 'package:FinalsProject/models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -12,7 +15,7 @@ class DrawerScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(20),
-            color: Colors.lightBlue[300],
+            color: Color(4283411658),
             child: Center(
               child: Column(
                 children: <Widget>[
@@ -95,9 +98,13 @@ class DrawerScreen extends StatelessWidget {
                 fontSize: 18.0,
               ),
             ),
-            onTap: () async {
-              await _auth.signOut();
-              // Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+            onTap: () {
+              dynamic result = _auth.signOut();
+              if (result != null) {
+                Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+              } else {
+                print("something is wrong");
+              }
             },
           ),
         ],

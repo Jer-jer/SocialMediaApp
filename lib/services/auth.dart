@@ -1,5 +1,8 @@
 import 'package:FinalsProject/models/user.dart';
+import 'package:FinalsProject/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -30,7 +33,35 @@ class AuthService {
   }
 
   //sign in email & pass
+  Future login(String email, String password) async {
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
   //register with email & pass
+  Future register(String fullname, String email, String password) async {
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+
+      //create a new document for the user with the uid
+      await Database(uid: user.uid).updateUser(fullname, email, password);
+
+      return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
   //sign out
   Future signOut() async {
     try {
@@ -40,6 +71,6 @@ class AuthService {
       return null;
     }
   }
-  //post
+
   //edit account
 }

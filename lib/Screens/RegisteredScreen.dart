@@ -16,7 +16,7 @@ class _RegisteredScreenState extends State<RegisteredScreen> {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: Colors.lightBlue[300],
+          color: Color(4283411658),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

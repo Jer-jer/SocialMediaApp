@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
     return Container(
         child: Align(
       alignment: align,
-      child: FlatButton(
+      child: TextButton(
         onPressed: () {
           Navigator.pushReplacementNamed(context, route);
         },
