@@ -34,20 +34,6 @@ class _AccountScreenState extends State<AccountScreen> {
     });
   }
 
-  // Future uploadPic(BuildContext context) async {
-  //   String filename = basename(_image.path);
-  //   final Reference firebaseStorage =
-  //       FirebaseStorage.instance.ref().child('images/$filename');
-  //   final UploadTask uploadTask = firebaseStorage.putFile(_image);
-  //   await uploadTask.whenComplete(() {
-  //     setState(() {
-  //       Scaffold.of(context).showSnackBar(SnackBar(
-  //         content: Text('Profile Picture Uploaded'),
-  //       ));
-  //     });
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<TheUser>(context, listen: false);
@@ -238,8 +224,8 @@ class _AccountScreenState extends State<AccountScreen> {
                     MaterialButton(
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
-                          await Database(uid: userData.uid)
-                              .updateUser(fullname, age, address);
+                          await Database(uid: userData.uid).updateUser(
+                              fullname, age, address, userData.email);
                           Navigator.of(context).pop();
                         }
                       },

@@ -13,10 +13,10 @@ class Database {
       FirebaseFirestore.instance.collection('posts');
 
   //Create and Update User Data
-  Future updateUser(String fullname, String age, String address) async {
-    return await bazUsers
-        .doc(uid)
-        .set({'fullname': fullname, 'age': age, 'address': address});
+  Future updateUser(
+      String fullname, String age, String address, String email) async {
+    return await bazUsers.doc(uid).set(
+        {'fullname': fullname, 'age': age, 'address': address, 'email': email});
   }
 
   //Delete User
@@ -62,6 +62,7 @@ class Database {
       fullname: snapshot.data()['fullname'],
       age: snapshot.data()['age'],
       address: snapshot.data()['address'],
+      email: snapshot.data()['email'],
     );
   }
 
