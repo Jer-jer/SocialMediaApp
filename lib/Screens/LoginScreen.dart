@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       width: 400,
                       height:
-                          600, //i've been resizing widths, heights and paddings to avoid overflowing
+                          623, //i've been resizing widths, heights and paddings to avoid overflowing
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         '/register',
                                         Colors.white),
                                     Padding(
-                                        padding: EdgeInsets.only(left: 90.0)),
+                                        padding: EdgeInsets.only(left: 33.0)),
                                     TextButton(
                                       child: Text('Login'),
                                       style: TextButton.styleFrom(
@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           if (result == null) {
                                             setState(() {
                                               err =
-                                                  'Not signed in with those shitty ass credentials';
+                                                  'Not signed in with those credentials';
                                               loading = false;
                                             });
                                           } else {

@@ -3,6 +3,7 @@ import 'package:FinalsProject/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:FinalsProject/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -53,9 +54,20 @@ class AuthService {
       User user = result.user;
 
       //create a new document for the user with the uid
-      await Database(uid: user.uid).updateUser(fullname, email, password);
+      await Database(uid: user.uid).updateUser(fullname, '', '');
 
       return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  //delete account
+  Future delete() async {
+    try {
+      Database().deleteUser(_auth.currentUser.uid);
+      return await _auth.currentUser.delete();
     } catch (e) {
       print(e.toString());
       return null;

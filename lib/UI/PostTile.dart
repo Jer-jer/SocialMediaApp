@@ -9,13 +9,15 @@ class PostTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          CustomPadding(20.0),
-          CustomImages('images/jean.jpg', post.content),
-          CustomPadding(15.0),
-        ],
+    return GestureDetector(
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            CustomPadding(20.0),
+            CustomImages('images/jean.jpg', post.content),
+            CustomPadding(15.0),
+          ],
+        ),
       ),
     );
   }
